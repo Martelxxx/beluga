@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "airport": {
+    "iata": "IAD",
+    "icao": "KIAD",
+    "name": "Washington Dulles International Airport",
+    "city_region": "Dulles / Washington, DC metropolitan area",
+    "address": "1 Saarinen Circle, Dulles, VA 20166",
+    "operator": "Metropolitan Washington Airports Authority (MWAA)",
+    "timezone": "America/New_York"
+  },
+  "purpose": "Grounding bucket for Beluga passenger assistance. Stable airport facts are stored here; live flight, weather, security-wait, concession-hours and disruption data should come from live providers when available.",
+  "last_reviewed": "2026-10-04",
+  "terminal_and_movement": {
+    "main_terminal": "The iconic Eero Saarinen Main Terminal contains airline ticketing/check-in on the Departures level and baggage claim/ground transportation on the Arrivals/Baggage Claim levels.",
+    "gate_areas": ["A Gates", "B Gates", "C Gates", "D Gates", "Z Gates"],
+    "aerotrain": {
+      "description": "AeroTrain is the automated underground passenger train connecting the Main Terminal with midfield gate areas for domestic and international departures and domestic arrivals.",
+      "terminal_station": "Just beyond TSA security screening.",
+      "typical_station_to_station_time": "less than 2 minutes",
+      "international_arrivals_note": "Most international arrivals do not use AeroTrain before customs because they must first clear U.S. Customs and Border Protection."
+    },
+    "mobile_lounges": "Dulles historically uses mobile lounge / plane-mate transport for some passenger movements; Beluga should not assume AeroTrain is the only possible gate-transfer mode.",
+    "connection_guidance": "For a specific connection, use the passenger's actual arriving and departing gates and live airport/airline data when available. Do not invent indoor walking times from this static bucket."
+  },
+  "security": {
+    "checkpoints": ["East Security Checkpoint", "West Security Checkpoint", "TSA PreCheck"],
+    "location": "Departures / Ticketing / Check-In level",
+    "screening_available": "Security screening is available 24 hours a day; checkpoint-specific lane hours can vary and should be treated as time-sensitive.",
+    "clear": "CLEAR is available at Washington Dulles.",
+    "tsa_cares": "TSA Cares can assist travelers with disabilities and medical conditions.",
+    "rule": "Never infer or fabricate a current security wait from this context bucket. Use a live wait-time source when connected; otherwise say that a live wait is unavailable."
+  },
+  "ground_transportation": {
+    "metro": {
+      "service": "Washington Metro Silver Line",
+      "station": "Washington Dulles International Airport Metrorail Station",
+      "terminal_access": "The station is connected to the Main Terminal by an indoor pedestrian tunnel with moving sidewalks; the tunnel also connects toward Garage 1.",
+      "live_data_rule": "Use WMATA or another live transit source for current train times, fares and service advisories."
+    },
+    "rental_cars": {
+      "location": "On-airport rental facilities on Autopilot Drive",
+      "terminal_pickup": "From the Terminal Baggage Claim level, use the down ramp near Doors 2 and 4; rental shuttles use Curb 2C or 2D.",
+      "note": "Some brands share shuttle buses, so passengers should verify the brand before boarding."
+    },
+    "taxi": "Washington Flyer Taxi serves Dulles; accessible vehicles can be requested in advance.",
+    "rideshare_and_prearranged": "Use airport-designated pickup areas and the connected provider's live pickup instructions. Do not invent a curb/door when the provider is connected and can supply one.",
+    "private_pickup": "Arrivals curb is active loading/unloading only. Drivers should coordinate a numbered Arrivals Door; a Cell Phone Lot is available for waiting.",
+    "kiss_and_fly": "The airport promotes Kiss & Fly near the Silver Line station as an alternative drop-off point that can avoid terminal-curb congestion."
+  },
+  "parking": {
+    "options": ["Valet", "Terminal Parking", "Garage 1", "Garage 2", "Economy Lot"],
+    "terminal_parking": "Closest self-parking option, directly across from the Main Terminal; pedestrian access includes an underground walkway.",
+    "garage_1": "Connected to the Terminal by an underground pedestrian walkway with moving sidewalks; free garage shuttle also operates.",
+    "garage_2": "Connected to the Departures/Ticketing level by a covered walkway; useful for many west-side/international airline functions; free garage shuttle also operates.",
+    "economy": "Lower-cost outdoor parking with free shuttle service to and from the Terminal.",
+    "shuttles": "Airport parking shuttles operate between parking facilities and the terminal. Exact headways and travel times are operational data and can change.",
+    "pricing_rule": "Parking prices are time-sensitive. If a current parking-price source is not connected, label stored rates as last-reviewed rather than live."
+  },
+  "international_arrivals": {
+    "customs": "Except for passengers arriving from pre-cleared origins, international arriving passengers and their luggage must be processed by U.S. Customs and Border Protection.",
+    "connections": "Passengers connecting onward after CBP generally need to collect luggage, complete customs formalities, re-check luggage as required, and pass TSA screening again.",
+    "terminating_passengers": "Passengers ending their trip in the Washington area exit to the Terminal Arrivals / Baggage Claim level.",
+    "meeting_area": "A waiting area is available outside International Arrivals near Baggage Claim 15; pre-cleared international arrivals can use domestic-style exits.",
+    "mobile_passport_control": "Eligible travelers can use CBP Mobile Passport Control."
+  },
+  "amenities": {
+    "wifi": {
+      "available": true,
+      "network": "#IAD Free WiFi",
+      "coverage": "Terminal and concourse areas"
+    },
+    "charging": "Charging stations are distributed throughout gate areas and the terminal; additional charging is available in several dining areas.",
+    "chapel": "Interfaith Chapel in Concourse A, directly across from Gate A32; described by the airport as always open.",
+    "uso": "USO Lounge in the Main Terminal opposite Baggage Claim 12 for eligible military personnel and families.",
+    "nursing_rooms": "The airport FAQ states there are eight nursing rooms throughout the airport.",
+    "baggage_storage": "The airport does not provide a designated public luggage-storage area.",
+    "baggage_carts": "Smarte Carte baggage carts are available at curbside, baggage claim and international-arrivals locations.",
+    "smoking": "All indoor smoking lounges were permanently closed effective June 1, 2023.",
+    "kids": "The FunWay children's play area is near Gate B70.",
+    "pet_relief": {
+      "post_security": ["Adjacent to Gate A32", "Across from Gate D1"],
+      "pre_security": ["Outside Departures near Door 16", "Outside Departures near Door 1", "Arrivals/Baggage Claim area near Baggage Claim 1"]
+    }
+  },
+  "accessibility": {
+    "commitment": "MWAA states that Dulles public facilities and services are intended to provide universal access.",
+    "wheelchairs": "Passengers should arrange wheelchair assistance through their airline, preferably in advance.",
+    "shuttles": "Airport parking shuttle buses and rental-car shuttles have wheelchair lifts/ramps.",
+    "sunflower": "Hidden Disabilities Sunflower lanyards are available at the USO Lounge and airport information desks during posted service hours.",
+    "restrooms_and_elevators": "Accessible restrooms and elevators are available throughout the airport."
+  },
+  "lounges": [
+    {"name": "Air France Lounge", "location": "near Gate A19"},
+    {"name": "British Airways Lounge", "location": "across from the ‹QØ]\ÈY\›Õ˜Z[ˆİ][ÛˆŸKˆÈ›˜[YHˆ‘]ZYZ\Ø^\Èİ[™ÙH‹›ØØ][Ûˆˆ˜Y˜XÙ[ÈØ]HLMŸKˆÈ›˜[YHˆ“Y[œØHİ[™ÙH‹›ØØ][Ûˆˆ›™X\ˆØ]\ÈKĞLH‹œİ]\×Û›İHˆZ\œÜÚ]H\İY]\È[\Ü˜\š[HÛÜÙY›Üˆ™[›İ˜][ÛœÈ]\İ™]šY]ÎÈ™\šYH™Y›Ü™H\™Xİ[™ÈH\ÜÙ[™Ù\‹ˆŸKˆÈ›˜[YHˆ•\šÚ\ÚZ\›[™\Èİ[™ÙH‹›ØØ][Ûˆˆ›™X\ˆØ]HÈŸKˆÈ›˜[YHˆ•[š]YÛXœÈ‹›ØØ][Ûˆˆ›™X\ˆØ]\ÈÍË[™ÌMÈŸKˆÈ›˜[YHˆ•[š]YÛ\š\Èİ[™ÙH‹›ØØ][Ûˆˆ›™X\ˆØ]HÌNŸKˆÈ›˜[YHˆ•š\™Ú[ˆ][XÈÛXšİ\ÙH‹›ØØ][Ûˆˆ›™X\ˆØ]HLÌˆŸKˆÈ›˜[YHˆØ\][Û™Hİ[™ÙH‹›ØØ][Ûˆˆš\İ™^[Û™ĞH™PÚXÚÈ™]ÙY[ˆX\İ[™Ù\İÙXİ\š]HÚXÚÜÚ[ÈÛˆHXÚÙ][™È]™[ŸBˆKˆ™›ÛÙØ[™ÜÚÜ[™ÈˆÂˆœ[Hˆ•HÛÛ˜Ù\ÜÚ[Ûˆ\™XİÜH\ÈÜ\˜][Û˜[[™Ø[ˆÚ[™ÙKˆ\ÙHH]™H\™XİÜHÚ[ˆ]˜Z[X›NÈİ\Ú\ÙH™\Ù[˜[YY^[\\È\È\İZÛ›İÛˆ^[\\È˜]\ˆ[ˆİX\˜[YY[Ü[ˆ™[Y\Ëˆ‹ˆ™^[\\ÈˆÂˆÈ›˜[YHˆ‰œ^˜H‹˜\™X\ÈˆÈÛÛ˜Ûİ\œÙHˆ‹ÛÛ˜Ûİ\œÙHÈ—_KˆÈ›˜[YHˆ˜\ˆŞ[[Ûˆ‹˜\™X\ÈˆÈÛÛ˜Ûİ\œÙH—_KˆÈ›˜[YHˆ™HšYÚ\™Ù\ˆ‹˜\™X\ÈˆÈÛÛ˜Ûİ\œÙHÈ—_KˆÈ›˜[YHˆÚYˆÙ[Ù™‰ÜÈ‹˜\™X\ÈˆÈÛÛ˜Ûİ\œÙHÈ—_KˆÈ›˜[YHˆ’™\œÙ^HZZÙIÜÈİXœÈ‹˜\™X\ÈˆÈÛÛ˜Ûİ\œÙHH—_KˆÈ›˜[YHˆ”ÛX\Ú\™Ù\ˆ‹˜\™X\ÈˆÈÛÛ˜Ûİ\œÙHH—_KˆÈ›˜[YHˆ”İXØ^H‹˜\™X\ÈˆÈ–ˆØ]\È‹ÛÛ˜Ûİ\œÙHÈ—_KˆÈ›˜[YHˆ•š[›È›ÛÈ‹˜\™X\ÈˆÈÛÛ˜Ûİ\œÙHˆ—_KˆÈ›˜[YHˆ•Ù[™IÜÈ‹˜\™X\ÈˆÈÛÛ˜Ûİ\œÙHˆ—_BˆBˆKˆœ\ÜÙ[™Ù\—ÛYY][™×Ø[™ÜXÚİ\ˆÂˆš[œÚYWİ\›Z[˜[ˆ”[ÜHYY][™È\œš]š[™È\ÜÙ[™Ù\œÈØ[ˆYY]ÛˆH˜YÙØYÙHÛZ[H]™[ˆ‹ˆ˜\œš]˜[×ÙÛÜœÈˆ\œš]˜[ÈÛÜœÈ\™H[X™\™YKMÎÈ\ÜÙ[™Ù\œÈ[™š]™\œÈÚİ[YÜ™YHÛˆHÜXÚYšXÈÛÜ‹ˆ‹ˆ˜İ\˜—Ü[Hˆ•ØZ][™È]H\œš]˜[Èİ\˜ˆ\È›İ\›Z]YÈ\ÙHHÙ[Û™Hİ[[H\ÜÙ[™Ù\ˆ\È™XYH]Hİ\˜‹ˆ‚ˆKˆ˜ÛÛœİXİ[Û—Ø[™Ù]\™HˆÂˆ˜ÛÛ˜Ûİ\œÙWÙHˆH™]ÈÛÛ˜Ûİ\œÙHH\È[™\ˆ]™[ÜY[\ÈH[Ù\›ˆMYØ]H˜XÚ[]HÚ]^[™YÛÛ˜Ù\ÜÚ[ÛœË\ÜÙ[™Ù\ˆÜXÙH[™H\™XİY\›Õ˜Z[ˆ™[][ÛœÚ\ˆ‹ˆ™ÛØ˜[ÙØ]]Ø^Hˆ‘[\ÈÛØ˜[Ø]]Ø^H\ÈH][K^YX\ˆ[Ù\›š^˜][Ûˆ›ÙÜ˜[HÛİ™\š[™ÈÛÛ˜Ûİ\œÙ\ËÚXÚËZ[‹ÙXİ\š]KY\›Õ˜Z[ˆ^[œÚ[Û‹Ø[ØXš[]Kİ\İÛ\È[™\ÜÙ[™Ù\ˆ[Y[š]Y\Ëˆ‹ˆœ™\ÜÛœÙWÜ[HˆÛÛœİXİ[Ûˆİ]\ÈÚ[™Ù\Èİ™\ˆ[YKˆ™[YØHÚİ[Y[YH\ÙH\È[›™Yİ[™\ˆÛÛœİXİ[Ûˆ[›\ÜÈHİ\œ™[Ûİ\˜ÙHÛÛ™š\›\ÈÛÛ\][Û‹ˆ‚ˆKˆ˜\ÜÚ\İ[Ü[\ÈˆÂˆ[œİÙ\ˆPQ]Y\İ[ÛœÈœ›ÛH\ÈXÚÙ]Ú[ˆH˜Xİ\ÈİX›H[™^XÚ]H™\Ù[ˆ‹ˆ”™Y™\ˆ]™H›İšY\ˆİ]H›Üˆ›YÚİ]\ËØ]\Ë›Ø\™[™È[Y\ËÙX]\‹ÙXİ\š]HØZ]Ë˜Y™šXË˜[œÚ]\\\™\ËÛÛ˜Ù\ÜÚ[Ûˆİ\œÈ[™\šÚ[™È]˜Z[Xš[]KÜšXÙ\Ëˆ‹ˆ“™]™\ˆ˜XœšXØ]HHØ]KÙXİ\š]HØZ]™\İ]\˜[Ü[š[™Èİ]\ËšYHXÚİ\›Û™K˜YÙØYÙHØ\›İ\Ù[ÜˆZ\›[™HÛXŞKˆ‹ˆ•Ú[ˆH™\]Y\İY]™H˜Xİ\È[˜]˜Z[X›KØ^HÚ]\ÈÛ›İÛˆ[™Y[YHHZ\ÜÚ[™È]™HÛİ\˜ÙH[œİXYÙˆİY\ÜÚ[™Ëˆ‹ˆ’ÙY\\ÜÙ[™Ù\ˆ[œİÙ\œÈÛÛ˜Ú\ÙKXİ[Û˜X›H[™ØØ][Û‹X]Ø\™Kˆ‹ˆ•\ÙHH\	ÜÈÙ[XİY[™İXYÙH›Üˆ™\Y\Ëˆ‹ˆ•™X]ÛÛ›™XİY\Ù\šXÙH˜[œØXİ[ÛœÈ\ÈÚ[][]Y[›\ÜÈHİ\œ™[İ]H^XÚ]HØ^\ÈH™X[›İšY\ˆXİ[ÛˆİXØÙYYYˆ‚ˆKˆœÛİ\˜Ù\ÈˆÂˆÈ]Hˆ“Ù™šXÚX[Ø\Ú[™İÛˆ[\ÈÙXœÚ]H‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKÈŸKˆÈ]Hˆ”\šÚ[™È	ˆ˜[œÜÜ][Ûˆ‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKÜ\šÚ[™Ë]˜[œÜÜ][ÛˆŸKˆÈ]Hˆ”\šÚ[™È[™›Ü›X][Ûˆ‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKÜ\šÚ[™Ë]˜[œÜÜ][Û‹Ü\šÚ[™ËZ[™›Ü›X][ÛˆŸKˆÈ]Hˆ”™[[Ø\œÈ‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKÜ\šÚ[™Ë]˜[œÜÜ][Û‹Ü™[[XØ\œÈŸKˆÈ]Hˆ”ÙXİ\š]H[™›Ü›X][Ûˆ‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKİ˜]™[Z[™›Ü›X][Û‹ÜÙXİ\š]KZ[™›Ü›X][ÛˆŸKˆÈ]Hˆ”Ù\šXÙ\È	ˆ[Y[š]Y\È‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKİ˜]™[Z[™›Ü›X][Û‹ÜÙ\šXÙ\ËX[Y[š]Y\ÈŸKˆÈ]HˆZ\œÜİ[™Ù\È‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKİ˜]™[Z[™›Ü›X][Û‹ÜÙ\šXÙ\ËX[Y[š]Y\ËØZ\œÜ[İ[™Ù\ÈŸKˆÈ]Hˆİ\İÛ\È	ˆ[[ZYÜ˜][Ûˆ‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKĞİ\İÛ\ÈŸKˆÈ]HˆZ\œÜ[™\›Z[˜[X\È‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKİ˜]™[Z[™›Ü›X][Û‹ØZ\œÜX[™]\›Z[˜[[X\ÈŸKˆÈ]Hˆ“YY][™È\ÜÙ[™Ù\œÈ‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKİ˜]™[Z[™›Ü›X][Û‹ÛYY][™Ë\\ÜÙ[™Ù\œÈŸKˆÈ]Hˆ‘\ØXš[]HÙ\šXÙ\È‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKØİ\İÛY\‹\Ù\šXÙKÙ\ØXš[]K\Ù\šXÙ\ÈŸKˆÈ]Hˆ‘[\ÈTH‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKØİ\İÛY\‹\Ù\šXÙKÙ˜\KİØ\Ú[™İÛ‹Y[\ËZ[\›˜][Û˜[Yœ™\]Y[KX\ÚÙY\]Y\İ[ÛœÈŸKˆÈ]HˆY\›Õ˜Z[ˆ‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKİ˜]™[Z[™›Ü›X][Û‹ÌŒZÛY^K]˜]™[YİZYKØY\›İ˜Z[‹]Ø\Ú[™İÛ‹Y[\ËZ[\›˜][Û˜[XZ\œÜŸKˆÈ]Hˆ‘[\ÈÛØ˜[Ø]]Ø^H‹\›ˆšÎ‹ËİİİË™›Y[\Ë˜ÛÛKÙÛØ˜[Ø]]Ø^HŸBˆBŸB
