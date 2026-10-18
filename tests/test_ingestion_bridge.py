@@ -81,7 +81,7 @@ class BridgeTests(unittest.TestCase):
         payload = snapshot()
         payload["header_image"] = {
             "mime_type": "image/png",
-            "data_base64": base64.b64encode(b"\x89PNG\r\n\\x1a\n" + b"x" * 16).decode()
+            "data_base64": base64.b64encode(b"\x89PNG\r\n\x1a\n" + b"x" * 16).decode()
         }
         # Python bytes literals above intentionally contain the PNG signature.
         result = bridge.publish(payload)
