@@ -1499,7 +1499,8 @@ def flight_checkout(state: dict) -> dict:
             "currency":change["currency"],
             "reply":f"The fare changed from {change['old_amount']} to {change['new_amount']} {change['currency']}. Nothing was booked. Say ‘continue’ to accept the new fare, or choose another flight.",
         }
-    state["selected_offer"]=fresh    state["price_acceptance"]=None
+    state["selected_offer"]=fresh
+    state["price_acceptance"]=None
     state["last_revalidated_at"]=dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
     if not state.get("traveler_details_complete"):
         state["stage"]="COLLECTING_TRAVELERS"; _save_flight_session(state)
