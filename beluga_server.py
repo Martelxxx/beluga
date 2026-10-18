@@ -2818,6 +2818,9 @@ class Handler(BaseHTTPRequestHandler):
             qs = parse_qs(parsed.query)
             if parsed.path in {"/", "/index.html", "/beluga_full_demo_v52_1.html"}:
                 body = HTML.read_bytes()
+                injection = b'<script defer src="/assets/ingestion-client.js"></script></body>'
+                if b"</body>" in body:
+                    body = body.replace(b"</body>", injection, 1)
                 self.send_response(200)
                 self.send_header("Content-Type", "text/html; charset=utf-8")
                 self.send_header("Content-Length", str(len(body)))
