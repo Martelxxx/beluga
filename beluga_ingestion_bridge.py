@@ -165,8 +165,8 @@ def publish(payload: dict) -> dict:
     STORE.mkdir(parents=True, exist_ok=True)
     with LOCK:
         previous = read_published(code)
-        if previous and previous.get("revision") == revision and previous.get("context_fingerprint") != qa["context_fingerprint"]:
-            raise BridgeError("Published revision conflicts with its previous fingerprint.", 409)
+        if previous and previous.get("revision") == revision and previous != snapshot:
+            raise BridgeError("Published revision is immutable. Increment revision after changing content.", 409)
         if image_bytes is not None:
             suffix = {"image/png": "png", "image/jpeg": "jpg", "image/webp": "webp"}[image_type]
             file_path = STORE / (code + "." + suffix)
