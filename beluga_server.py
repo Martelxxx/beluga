@@ -1999,7 +1999,8 @@ def _openai_response_text(payload: dict) -> str:
 
 def _openai_json(body: dict, timeout: int = 40) -> dict:
     if not OPENAI_API_KEY:
-        raise APIError("OpenAI is not configured in the local server.", 503)    req = Request("https://api.openai.com/v1/responses",
+        raise APIError("OpenAI is not configured in the local server.", 503)
+    req = Request("https://api.openai.com/v1/responses",
                   data=json.dumps(body, ensure_ascii=False).encode("utf-8"),
                   headers={"Authorization": "Bearer " + OPENAI_API_KEY,
                            "Content-Type": "application/json", "Accept": "application/json",
