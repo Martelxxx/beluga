@@ -1,0 +1,26 @@
+name: Ingestion bridge
+on:
+  pull_request:
+    paths:
+      - 'beluga_server.py'
+      - 'beluga_ingestion_bridge.py'
+      - 'assets/ingestion-client.js'
+      - 'tests/test_ingestion_bridge.py'
+      - '.github/workflows/ingestion-bridge.yml'
+  push:
+    branches:
+      - feature/airport-ingestion-bridge
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile Python
+        run: python -m py_compile beluga_server.py beluga_ingestion_bridge.py tools/publish_airport.py
+      - name: Run bridge tests
+        run: python -m unittest discover -s tests -v
+      - name: Check client JavaScript
+        run: node --check assets/ingestion-client.js
