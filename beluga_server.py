@@ -499,7 +499,8 @@ class RouteStackClient:
             payload["params"] = params
         headers = {"Authorization": "Bearer " + token}
         if self.session_id:
-            headers["Mcp-Session-Id"] = self.session_id        try:
+            headers["Mcp-Session-Id"] = self.session_id
+        try:
             result, response_headers = self._http(self.mcp_url, payload, headers=headers)
         except APIError as exc:
             if exc.status == 502 and not ROUTESTACK_PARTNER_TOKEN and self.token:
