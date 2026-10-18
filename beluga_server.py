@@ -2520,7 +2520,8 @@ def _usable_png(body: bytes) -> bool:
     return width >= 180 and height >= 180 and width <= 4000 and height <= 4000
 
 
-def airline_logo(code: str) -> tuple[bytes, str] | None:    code = code.strip().upper()
+def airline_logo(code: str) -> tuple[bytes, str] | None:
+    code = code.strip().upper()
     if not re.fullmatch(r"[A-Z0-9]{2,3}", code):
         return None
     bundled_svg = BUNDLED_AIRLINE_MARK_DIR / f"{code}.svg"
