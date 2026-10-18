@@ -999,7 +999,8 @@ def _resolve_date_phrase(text: str, base: dt.date | None = None) -> str | None:
             return _next_weekday(base, idx, "next " + name in q).isoformat()
     months = {m.lower(): i for i, m in enumerate(["January","February","March","April","May","June","July","August","September","October","November","December"], 1)}
     for name, month in months.items():
-        m = re.search(rf"\b{name}\s+(\d{{1,2}})(?:st|nd|rd|th)?(?:,?\s+(\d{{4}}))?", q)        if m:
+        m = re.search(rf"\b{name}\s+(\d{{1,2}})(?:st|nd|rd|th)?(?:,?\s+(\d{{4}}))?", q)
+        if m:
             year = int(m.group(2) or base.year)
             day = int(m.group(1))
             try:
