@@ -27,7 +27,7 @@ from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
 HERE = Path(__file__).resolve().parent
-HTML = HERE / "beluga_full_demo_v52_1.html"
+HTML = HERE / "beluga_full_demo_v52_2.html"
 AIRPORT_CONTEXT_DIR = HERE / "airport_context"
 BUNDLED_AIRLINE_MARK_DIR = HERE / "assets" / "airline_marks"
 WEATHER_SCENE_DIR = HERE / "assets" / "weather_scenes"
