@@ -18,3 +18,9 @@ POST /v1/tasks from a trusted backend with Authorization: Bearer <bridge token>,
 **Not production-ready:** in-memory task state, single-process queue, no persistent passenger authentication or durable transaction approvals. No purchases, payments, logins, submissions, rides, cookies or merchant automations enabled. Do not expose directly to the internet.
 
 Next: connect newer Beluga composer backend to this service, add Dynamic Hub progress feedback without changing visuals, and build merchant-approved quote preparation and server-enforced user approval (single-use, price-bound, idempotent), preferring official Uber MCP/partner access.
+
+## macOS guided installation and first session
+
+Run `bash setup_mac.command` from `agent_runtime/` on the networked Mac hosting the Beluga development environment. The script checks for Node.js 22.18+, installs it through nvm or Homebrew if available, installs the Browserbase `browse` CLI if absent, installs Stagehand dependencies, prompts secretly for the Browserbase key if unset, verifies account access, starts a disposable read-only cloud browser, prints the complete session link, and runs tests. It does not write the Browserbase key to disk or modify the passenger UI. No project ID is needed.
+
+The hosted ChatGPT sandbox could not reach registry.npmjs.org (DNS EAI_AGAIN). Local Node security tests pass, but the first live browser session remains unverified until this script runs on a machine with npm/Browserbase network access. The code is Phase 1 research-only; payments, logins and purchases are disabled.
