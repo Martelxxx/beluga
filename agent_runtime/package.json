@@ -1,0 +1,9 @@
+{
+  "name": "beluga-agent-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=22.18.0"},
+  "scripts": {"start": "node src/server.mjs", "smoke": "node src/smoke.mjs", "test": "node --test"},
+  "dependencies": {"@browserbasehq/stagehand": "^4.0.0", "zod": "~4.4.3"}
+}
